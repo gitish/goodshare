@@ -41,4 +41,8 @@ var user = new Schema({
     }
 });
 
+/*
+add another schema here
+ */
+
 module.exports = mongoose.model('user', user);

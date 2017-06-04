@@ -12,7 +12,7 @@ var item= new Schema({
         Required: 'Kindly enter itemId'
     },
     userId:{
-        type:user.userId,
+        type:String,
         Required: 'Invalid userID'
     },
     name:{

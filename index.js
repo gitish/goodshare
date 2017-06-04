@@ -9,7 +9,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/eqs');
 
 var help=require("./modules/help/help.js"),
-	models=require('./api/models/schema.js');
+	users=require('./api/models/users.js'),
+	items=require('./api/models/items.js');
 
 app.set('port', (process.env.PORT || 3060));
 app.use(bodyParser.urlencoded({ extended: false }));

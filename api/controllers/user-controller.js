@@ -14,11 +14,12 @@ exports.list_all_users = function(req, res) {
 
 exports.create_new_user = function(req, res) {
     console.log("post call without pathparam");
+    console.log("new change pathparam");
     var user = new User(req.body);
     console.log(req.body);
     console.log(JSON.stringify(user));
     user.save(function(err, result) {
-        if (err){
+        if (err) {
             res.send(err);
         }
         res.json(result);

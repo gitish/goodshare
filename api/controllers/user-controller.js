@@ -25,17 +25,14 @@ exports.create_new_user = function(req, res) {
     });
 };
 
-exports.read_a_task = function(req, res) {
-    console.log("get call with requestId in path")
+exports.update_user = function(req, res) {
+    console.log("put with requestId in path")
 };
 
-exports.update_a_task = function(req, res) {
+exports.invalidate_user = function(req, res) {
     console.log("put call with requestId in path")
 };
 
-exports.delete_a_task = function(req, res) {
-    console.log("delete call withe requestId in path")
-};
 /**
  * Created by sshail on 03/06/2017.
  */

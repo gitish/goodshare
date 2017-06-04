@@ -41,8 +41,16 @@ var user = new Schema({
     }
 });
 
+var item= new Schema({
+    itemId: {
+        type: String,
+        Required: 'Kindly enter itemId'
+    }
+});
+
 /*
 add another schema here
  */
 
 module.exports = mongoose.model('user', user);
+module.exports = mongoose.model('item', item);

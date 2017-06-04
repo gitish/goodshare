@@ -4,15 +4,18 @@
 'use strict';
 
 module.exports = function(app) {
-    var todoList = require('../controllers/app-controller.js');
+    var userController = require('../controllers/user-controller.js');
+    var itemController = require('../controllers/item-controller.js');
 
     app.route('/tasks')
-        .get(todoList.list_all_users)
-        .post(todoList.create_new_user);
+        .get(userController.list_all_users)
+        .post(userController.create_new_user)
+        .put(userController.update_user)
+        .delete(userController.invalidate_user);
 
 
     app.route('/tasks/:taskId')
-        .get(todoList.read_a_task)
-        .put(todoList.update_a_task)
-        .delete(todoList.delete_a_task);
+        .get(itemController.read_items)
+        .put(itemController.update_a_item)
+        .delete(itemController.delete_a_item);
 };

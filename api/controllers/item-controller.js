@@ -11,13 +11,36 @@ exports.read_items = function(req, res) {
     });
     console.log("get call with requestId in path")
 };
+exports.create_new_items = function(req, res) {
+    var item = new Item();
+    item.itemId = req.body.itemId;
+    item.userId = req.body.userId;
+    item.name = req.body.name;
+    item.desc = req.body.desc;
+    item.img = req.body.img;
+    item.specification = req.body.specification;
+    item.location = req.body.location;
+    item.last_updated = req.body.last_updated;
+    item.save(function(err) {
+        if (err) {
+            res.send(err);
+        }
+        res.json({ message: 'data save' });
+    })
+}
 
 exports.update_a_item = function(req, res) {
-    Item.findById(req.params.itemId, function(err, item) {
+    Item.findById(req.params.taskId, function(err, item) {
+
         if (err)
             res.send(err);
+
         item.name = req.body.name;
         item.desc = req.body.desc;
+        item.img = req.body.img;
+        item.specification = req.body.specification;
+        item.location = req.body.location;
+        item.last_updated = req.body.last_updated;
 
         //save
         item.save(function(err) {
@@ -25,18 +48,18 @@ exports.update_a_item = function(req, res) {
                 res.send(err);
             res.json({ message: "name updated" });
         });
-    })
+    });
     console.log("put call with requestId in path")
 };
 
 exports.delete_a_item = function(req, res) {
     Item.remove({
-        _id: req.params.itemId
+        itemId: req.params.taskId
     }, function(err, Item) {
         if (err) {
             res.send(err);
-            res.json({ message: "Successful delete" });
         }
+        res.json({ message: "Successful delete" });
     });
     console.log("delete call withe requestId in path")
 };

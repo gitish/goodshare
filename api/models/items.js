@@ -6,32 +6,32 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var item= new Schema({
+var item = new Schema({
     itemId: {
         type: String,
         Required: 'Kindly enter itemId'
     },
-    userId:{
-        type:String,
+    userId: {
+        type: String,
         Required: 'Invalid userID'
     },
-    name:{
-        type:String
+    name: {
+        type: String
     },
-    desc:{
-        type:String
+    desc: {
+        type: String
     },
-    img:{
-        type:String
+    img: {
+        type: String
     },
-    specification:{
-        type:String
+    specification: {
+        type: String
     },
-    location:{
-        type:String
+    location: {
+        type: String
     },
-    last_updated:{
-        type:Date
+    last_updated: {
+        type: Date
     }
 });
 

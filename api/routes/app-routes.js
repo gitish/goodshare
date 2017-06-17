@@ -16,6 +16,7 @@ module.exports = function(app) {
 
     app.route('/tasks/:taskId')
         .get(itemController.read_items)
+        .post(itemController.create_new_items)
         .put(itemController.update_a_item)
         .delete(itemController.delete_a_item);
 };

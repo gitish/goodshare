@@ -6,40 +6,40 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var location= new Schema({
-    locationId: {
+var driver= new Schema({
+    itemId: {
         type: String
     },
-    country:{
+    userId:{
         type:String
     },
-    state:{
+    date:{
+        type:Date
+    },
+    startLocation:{
         type:String
     },
-    dist:{
+    startTime:{
         type:String
     },
-    post_office:{
-        type:String
-    },
-    local_location:{
-        type:String
-    },
-    pinCode:{
-        type:String
-    },
-    geoLocation:{
-        type:String
-    },
-    geoLongitude:{
+    waitTime:{
         type:Number
     },
-    geoLatitude:{
+    workTime:{
         type:Number
+    },
+    currentLocation:{
+        type:String
+    },
+    expenseOnItem:{
+        type:Number
+    },
+    expenseDetails:{
+        type:String
     }
 });
 
 /*
 add another schema here
  */
-module.exports = mongoose.model('location', location);
+module.exports = mongoose.model('driver', driver);

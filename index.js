@@ -6,12 +6,15 @@ var http = require('http'),
     bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://localhost/eqs');
-mongoose.connect('mongodb://sarveshome:Bcamcaphd@761@ds159237.mlab.com:59237/awsnode');
+mongoose.connect('mongodb://localhost/eqs');
+//mongoose.connect('mongodb://sarveshome:Bcamcaphd@761@ds159237.mlab.com:59237/awsnode');
 
 var help = require("./modules/help/help.js"),
     users = require('./api/models/users.js'),
-    items = require('./api/models/items.js');
+    items = require('./api/models/items.js'),
+    item_trade = require('./api/models/items_trade.js'),
+    item_location = require('./api/models/location.js'),
+    item_driver = require('./api/models/driver.js');
 
 app.set('port', (process.env.PORT || 3060));
 app.use(bodyParser.urlencoded({ extended: false }));

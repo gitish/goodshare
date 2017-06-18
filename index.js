@@ -1,31 +1,35 @@
 var http = require('http'),
-	fs = require("fs"),
- 	express = require('express'),
-	app = express(),
-	mongoose = require('mongoose'),
-	bodyParser = require('body-parser');
+    fs = require("fs"),
+    express = require('express'),
+    app = express(),
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/eqs');
+//mongoose.connect('mongodb://sarveshome:Bcamcaphd@761@ds159237.mlab.com:59237/awsnode');
 
-var help=require("./modules/help/help.js"),
-	users=require('./api/models/users.js'),
-	items=require('./api/models/items.js');
+var help = require("./modules/help/help.js"),
+    users = require('./api/models/users.js'),
+    items = require('./api/models/items.js'),
+    item_trade = require('./api/models/items_trade.js'),
+    item_location = require('./api/models/location.js'),
+    item_driver = require('./api/models/driver.js');
 
 app.set('port', (process.env.PORT || 3060));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var home=function(req,resp){
-	fs.readFile("./index.html", function(err, data) {
-		resp.writeHeader(200, {"Content-Type": "text/html"});
-		resp.write(data);
-		resp.end();
-	});
+var home = function(req, resp) {
+    fs.readFile("./index.html", function(err, data) {
+        resp.writeHeader(200, { "Content-Type": "text/html" });
+        resp.write(data);
+        resp.end();
+    });
 };
 /* this section handle all api */
-app.get("/",home);
-var routes=require("./api/routes/app-routes.js");
+app.get("/", home);
+var routes = require("./api/routes/app-routes.js");
 routes(app);
 /*
 general routes and UI path
@@ -36,6 +40,6 @@ app.use(express.static(__dirname + '/public'));
 /*
 finally start the server
  */
-app.listen(app.get('port'), function(){
-	console.log('Server listening to port : '+app.get('port'));
+app.listen(app.get('port'), function() {
+    console.log('Server listening to port : ' + app.get('port'));
 });

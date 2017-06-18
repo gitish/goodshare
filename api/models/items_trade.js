@@ -12,7 +12,7 @@ var item_trade= new Schema({
         Required: 'Kindly enter itemId'
     },
     userId:{
-        type:user.userId,
+        type:String,
         Required: 'Invalid userID'
     },
     priority: {

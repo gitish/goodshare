@@ -14,7 +14,8 @@ var driver= new Schema({
         type:String
     },
     date:{
-        type:Date
+        type:Date,
+        default:Date.now
     },
     startLocation:{
         type:String

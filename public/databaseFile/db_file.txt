@@ -14,3 +14,19 @@ Item
  }
 
 
+-----------------------------------
+location
+
+{
+"locationId":"1",	
+"country":"india", 
+"state":"delhi", 	
+"region":"delhiNorth",
+"addressline1":"GCB ",
+"addressline2":"GCB 1 ",
+"pincode":"110089",
+"geolocation":"80.256221",
+"geolongitude":"70.000054",
+"geolatitude":"60.0223322"
+ }
+ 

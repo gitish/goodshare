@@ -1,45 +1,42 @@
-/**
- * Created by sshail on 03/06/2017.
- */
-
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var location= new Schema({
+
+var location = new Schema({
     locationId: {
+        type: String,
+        Required: 'kindly enter locationId'
+    },
+    country: {
         type: String
     },
-    country:{
-        type:String
+    state: {
+        type: String
     },
-    state:{
-        type:String
+    region: {
+        type: String
     },
-    dist:{
-        type:String
+    addressline1: {
+        type: String
     },
-    post_office:{
-        type:String
+    addressline2: {
+        type: String
     },
-    local_location:{
-        type:String
+    pincode: {
+        type: String
     },
-    pinCode:{
-        type:String
+    geolocation: {
+        type: String
     },
-    geoLocation:{
-        type:String
+    geolongitude: {
+        type: String
     },
-    geoLongitude:{
-        type:Number
-    },
-    geoLatitude:{
-        type:Number
+    geolatitude: {
+        type: String
     }
 });
 
-/*
-add another schema here
- */
+
+
 module.exports = mongoose.model('location', location);

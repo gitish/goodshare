@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 var location = new Schema({
     locationId: {
         type: String,
@@ -35,5 +36,7 @@ var location = new Schema({
         type: String
     }
 });
+
+
 
 module.exports = mongoose.model('location', location);

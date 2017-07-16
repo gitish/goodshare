@@ -7,6 +7,7 @@ var http = require('http'),
 
 mongoose.Promise = global.Promise;
 
+
 const config = require('./config/database');
 mongoose.connect(config.database);
 
@@ -28,8 +29,12 @@ db.on('error', function(err) {
 
 var help = require("./modules/help/help.js"),
     users = require('./api/models/users.js'),
-    items = require('./api/models/items.js');
-locatons = require('./api/models/location.js');
+
+    items = require('./api/models/items.js'),
+    item_trade = require('./api/models/items_trade.js'),
+    location = require('./api/models/location.js'),
+    item_driver = require('./api/models/driver.js');
+
 
 app.set('port', (process.env.PORT || 3060));
 app.use(bodyParser.urlencoded({ extended: false }));

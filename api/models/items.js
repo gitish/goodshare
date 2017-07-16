@@ -31,7 +31,8 @@ var item = new Schema({
         type: String
     },
     last_updated: {
-        type: Date
+        type: Date,
+        default:Date.now
     }
 });
 

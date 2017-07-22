@@ -1,10 +1,7 @@
-/**
- * Created by sshail on 03/06/2017.
- */
-
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 
 var location= new Schema({
     country:String,
@@ -20,7 +17,6 @@ var location= new Schema({
     status:Boolean
 });
 
-/*
-add another schema here
- */
+
+
 module.exports = mongoose.model('location', location);

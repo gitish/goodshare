@@ -7,13 +7,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var item_trade= new Schema({
-    itemId: {
-        type: String,
-        Required: 'Kindly enter itemId'
+    itemId:{
+        type:Schema.Types.ObjectId,
+        ref:"item"
     },
     userId:{
-        type:String,
-        Required: 'Invalid userID'
+        type:Schema.Types.ObjectId,
+        ref:"user"
     },
     priority: {
         type: [{
@@ -22,16 +22,16 @@ var item_trade= new Schema({
         }],
         default: ['general']
     },
-    price:{
-        type:Number
-    },
+    price:Number,
+    offerPrice:Number,
+    finalPrice:Number,
     trade_type:{
         type:[{
             type:String,
             enum: ['sell','purchase','rent-in','rent-out','leased','support']
         }]
-    }
-
+    },
+    status:Boolean
 });
 
 /*

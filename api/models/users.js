@@ -8,29 +8,29 @@ var Schema = mongoose.Schema;
 
 
 var user = new Schema({
-    name: {
+    name: String,
+    userType: {
         type: String,
-        Required: 'Kindly enter the name of the user'
+        enum: ["contractor", "owner","other"]
     },
-    email:{
-        type:String,
-        Required: ''
+    gender: {
+        type: String,
+        enum: ["male", "female"]
     },
+    email:String,
     mobile:{
-        type:String,
-        Required:''
+        type: String,
+        required: true,
+        unique: true
     },
+    otherContact:[String],
     password:{
         type:String,
-        Required:'',
         default:'password@123'
     },
     Modified_date:{
         type:Date,
         default:Date.now
-    },
-    userId:{
-        type:String
     },
     status: {
         type: [{

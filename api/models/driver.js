@@ -7,36 +7,38 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var driver= new Schema({
-    itemId: {
-        type: String
+    itemId:{
+        type:Schema.Types.ObjectId,
+        ref:"item"
     },
     userId:{
-        type:String
+        type:Schema.Types.ObjectId,
+        ref:"user"
     },
-    date:{
-        type:Date,
-        default:Date.now
-    },
-    startLocation:{
-        type:String
-    },
-    startTime:{
-        type:String
-    },
-    waitTime:{
-        type:Number
-    },
-    workTime:{
-        type:Number
-    },
+    usage:[{
+        start:{
+            locationId:{
+                type:Schema.Types.ObjectId,
+                ref:"location"
+            },
+            StartTime:{
+                type:Date,
+                default:Date.now
+            }
+        },
+        end:{
+            locationId:{
+                type:Schema.Types.ObjectId,
+                ref:"location"
+            },
+            stopTime:Date
+        },
+        waitTime:Number,
+        desc:String
+    }],
     currentLocation:{
-        type:String
-    },
-    expenseOnItem:{
-        type:Number
-    },
-    expenseDetails:{
-        type:String
+        type:Schema.Types.ObjectId,
+        ref:"location"
     }
 });
 

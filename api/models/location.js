@@ -3,38 +3,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var location = new Schema({
-    locationId: {
-        type: String,
-        Required: 'kindly enter locationId'
-    },
-    country: {
-        type: String
-    },
-    state: {
-        type: String
-    },
-    region: {
-        type: String
-    },
-    addressline1: {
-        type: String
-    },
-    addressline2: {
-        type: String
-    },
-    pincode: {
-        type: String
-    },
-    geolocation: {
-        type: String
-    },
-    geolongitude: {
-        type: String
-    },
-    geolatitude: {
-        type: String
-    }
+var location= new Schema({
+    country:String,
+    state:String,
+    district:String,
+    region:String,
+    post_office:String,
+    local_location:String,
+    pinCode:String,
+    geoLocation:String,
+    geoLongitude:Number,
+    geoLatitude:Number,
+    status:Boolean
 });
 
 

@@ -7,33 +7,27 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var item = new Schema({
-    itemId: {
-        type: String,
-        Required: 'Kindly enter itemId'
+    itemId:String,
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref:"user"
     },
-    userId: {
-        type: String,
-        Required: 'Invalid userID'
-    },
-    name: {
-        type: String
-    },
-    desc: {
-        type: String
-    },
-    img: {
-        type: String
-    },
-    specification: {
-        type: String
-    },
-    location: {
-        type: String
+    name:String,
+    desc:String,
+    img:[{
+        imgType:String,
+        url:String
+    }],
+    specification:String,
+    locationId: {
+        type:Schema.Types.ObjectId,
+        ref:"location"
     },
     last_updated: {
         type: Date,
         default:Date.now
-    }
+    },
+    status:Boolean
 });
 
 /*
